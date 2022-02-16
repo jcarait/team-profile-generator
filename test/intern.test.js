@@ -36,7 +36,7 @@ describe("getFunctions", () => {
     // it get emails from getEmail()
     it("should get and return intern email", () => {
         const email = "john.doe@mail.com";
-        const intern = new Intern("John Doe", 123, "john.doe@mail.com, University of Sydney");
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com", "University of Sydney");
         const getEmail = intern.getEmail()
 
         expect(getEmail).toEqual(email);
@@ -44,15 +44,15 @@ describe("getFunctions", () => {
 
     // it get role from getRole()
     it("should get and return intern role", () => {
-        const role = "intern"
-        const intern = new Intern("John Doe", 123, "john.doe@mail.com, University of Sydney");
+        const role = "Intern"
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com", "University of Sydney");
 
         expect(intern.getRole()).toBe(role);
     });
     
     it("should return intern's school", () => {
         const school = "University of Sydney"
-        const intern = new intern("John Doe", 123, "john.doe@mail.com, University of Sydney");
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com", "University of Sydney");
 
         expect(intern.getSchool()).toEqual(school);
     });

@@ -1,11 +1,11 @@
 // import engineer class
 
-const engineer = require("../lib/engineerClass");
+const Engineer = require("../lib/engineerClass");
 
 describe("engineer", () => {
 
     describe("Initialisation", () => {
-        it("should create an object with a name, id and email if provided valid arguments", () => {
+        it("should create an object with a name, id, email and github username if provided valid arguments", () => {
         const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");
 
         expect(engineer.name).toEqual("John Doe");
@@ -36,7 +36,7 @@ describe("getFunctions", () => {
     // it get emails from getEmail()
     it("should get and return engineer email", () => {
         const email = "john.doe@mail.com";
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
+        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");
         const getEmail = engineer.getEmail()
 
         expect(getEmail).toEqual(email);
@@ -45,14 +45,14 @@ describe("getFunctions", () => {
     // it get role from getRole()
     it("should get and return engineer role", () => {
         const role = "Engineer"
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
+        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");
 
         expect(engineer.getRole()).toBe(role);
     });
     
     it("should return engineer's github username", () => {
         const github = "john_doe"
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
+        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");
 
         expect(engineer.getGithub()).toEqual(github);
     });
