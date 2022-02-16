@@ -76,12 +76,12 @@ const addEmployee = () => {
         {
             type: "input",
             name: "name",
-            message: `What is the name of the ${choices}`,
+            message: "What is the name of the employee?",
             validate: nameInput => {
                 if (nameInput) { 
                     return true 
                 } else {  
-                    console.log("Please enter the manager's name!") 
+                    console.log("Please enter the employee's name!") 
                     return false;
                 }
             }
@@ -89,10 +89,10 @@ const addEmployee = () => {
         {
             type: "input",
             name: "id",
-            message: "Please enter the manager's ID.",
+            message: "Please enter the employee's ID.",
             validate: idInput => {
                 if (isNaN(idInput)) {
-                    console.log("Manager's ID must be numbers!")
+                    console.log("Employee's ID must be numbers!")
                     return false
                 } else {
                     return true
@@ -102,7 +102,7 @@ const addEmployee = () => {
         {
             type: "input",
             name: "email",
-            message: "Please enter the manager's email address.",
+            message: "Please enter the employee's email address.",
             validate: emailInput => {
                 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput)) {
                     return true
@@ -112,8 +112,40 @@ const addEmployee = () => {
                 }
             }
         },
-
-
+        {
+            type: 'input',
+            name: 'github',
+            message: "Please enter the employee's github username.",
+            when: (input) => input.role === "Engineer",
+            validate: nameInput => {
+                if (nameInput ) {
+                    return true;
+                } else {
+                    console.log ("Please enter the employee's github username!")
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Please enter the intern's school",
+            when: (input) => input.role === "Intern",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log ("Please enter the intern's school!")
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAdd',
+            message: 'Would you like to add more team members?',
+            default: false
+        }
     ])
 
 }
+
+addEmployee();
