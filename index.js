@@ -54,8 +54,19 @@ const addManager = () => {
                 }
             }
         },
-
-
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "Please enter the manager's office number",
+            validate: officeNumberInput => {
+                if  (isNaN(officeNumberInput)) {
+                    console.log ('Please enter an office number!')
+                    return false; 
+                } else {
+                    return true;
+                }
+            }
+        }
     ])
     .then(managerInput => {
         const  { name, id, email, officeNumber } = managerInput; 
