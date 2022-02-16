@@ -25,16 +25,16 @@ describe("getFunctions", () => {
         expect(engineer.getName()).toEqual(name);
     });
 
-    //test get id from getID()
-    it("test to get and return engineer ID", () => {
+    //it get id from getID()
+    it("it should get and return engineer ID", () => {
         const id = 123
         const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");;
 
         expect(engineer.getId()).toEqual(id);
     });
 
-    // test get emails from getEmail()
-    test("to get and return engineer email", () => {
+    // it get emails from getEmail()
+    it("should get and return engineer email", () => {
         const email = "john.doe@mail.com";
         const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
         const getEmail = engineer.getEmail()
@@ -42,8 +42,8 @@ describe("getFunctions", () => {
         expect(getEmail).toEqual(email);
     });
 
-    // test get role from getRole()
-    test("to get and return engineer role", () => {
+    // it get role from getRole()
+    it("should get and return engineer role", () => {
         const role = "Engineer"
         const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
 

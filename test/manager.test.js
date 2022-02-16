@@ -25,25 +25,25 @@ describe("getFunctions", () => {
         expect(manager.getName()).toEqual(name);
     });
 
-    //test get id from getID()
-    it("test to get and return manager ID", () => {
+    //it get id from getID()
+    it("it should get and return manager ID", () => {
         const id = 123
         const manager = new Manager("John Doe", 123, "john.doe@mail.com", 0400111222);
 
-        expect(manager.getId()).toEqual(id);
+        expect(manager.getId()).shouldEqual(id);
     });
 
-    // test get emails from getEmail()
-    test("to get and return manager email", () => {
+    // it get emails from getEmail()
+    it("should get and return manager email", () => {
         const email = "john.doe@mail.com";
         const manager = new Manager("John Doe", 123, "john.doe@mail.com", 0400111222);
         const getEmail = manager.getEmail()
 
-        expect(getEmail).toEqual(email);
+        expect(getEmail).shouldEqual(email);
     });
 
-    // test get role from getRole()
-    test("to get and return manager role", () => {
+    // it get role from getRole()
+    it("should get and return manager role", () => {
         const role = "Manager"
         const manager = new Manager("John Doe", 123, "john.doe@mail.com", 0400111222);
 
