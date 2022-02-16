@@ -57,6 +57,13 @@ const addManager = () => {
 
 
     ])
+    .then(managerInput => {
+        const  { name, id, email, officeNumber } = managerInput; 
+        const manager = new Manager (name, id, email, officeNumber);
+
+        team.push(manager); 
+        console.log(manager); 
+    });
 };
 
 const addEmployee = () => {
@@ -145,7 +152,40 @@ const addEmployee = () => {
             default: false
         }
     ])
+    .then(employeeData => {
 
+        let {name, id, role, github, school, confirmAdd } = employeeData;
+        let employee;
+
+        if (role === "Engineer") {
+            employee = new Engineer (name, id, email, github);
+
+            console.log(employee);
+        }
+        else {
+            employee = new Intern (name, id, email, school);
+
+            console.log(employee);
+        }
+
+        team.push(employee);
+
+        confirmAdd ? addEmployee(team) : team;
+    })
 }
 
-addEmployee();
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the profile has been created 
+        } else {
+            console.log("Your team profile has been successfully created! Please check out the index.html")
+        }
+    })
+}; 
+
+addEmployee()
+    .then(addEmployee);
