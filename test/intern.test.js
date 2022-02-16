@@ -1,59 +1,59 @@
-// import engineer class
+// import intern class
 
-const engineer = require("../lib/engineerClass");
+const Intern = require("../lib/internClass");
 
-describe("engineer", () => {
+describe("Intern", () => {
 
     describe("Initialisation", () => {
         it("should create an object with a name, id and email if provided valid arguments", () => {
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com", "University of Sydney");
 
-        expect(engineer.name).toEqual("John Doe");
-        expect(engineer.id).toEqual(123);
-        expect(engineer.email).toEqual("john.doe@mail.com");
-        expect(engineer.github).toEqual("john_doe");
+        expect(intern.name).toEqual("John Doe");
+        expect(intern.id).toEqual(123);
+        expect(intern.email).toEqual("john.doe@mail.com");
+        expect(intern.school).toEqual("University of Sydney");
         });
     });
 });
 
 describe("getFunctions", () => {
 
-    it("should return engineer name", () => {
+    it("should return intern name", () => {
         const name = "John Doe"
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");;
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com", "University of Sydney");;
 
-        expect(engineer.getName()).toEqual(name);
+        expect(intern.getName()).toEqual(name);
     });
 
     //it get id from getID()
-    it("it should get and return engineer ID", () => {
+    it("it should get and return intern ID", () => {
         const id = 123
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com", "john_doe");;
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com", "University of Sydney");;
 
-        expect(engineer.getId()).toEqual(id);
+        expect(intern.getId()).toEqual(id);
     });
 
     // it get emails from getEmail()
-    it("should get and return engineer email", () => {
+    it("should get and return intern email", () => {
         const email = "john.doe@mail.com";
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
-        const getEmail = engineer.getEmail()
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com, University of Sydney");
+        const getEmail = intern.getEmail()
 
         expect(getEmail).toEqual(email);
     });
 
     // it get role from getRole()
-    it("should get and return engineer role", () => {
-        const role = "Engineer"
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
+    it("should get and return intern role", () => {
+        const role = "intern"
+        const intern = new Intern("John Doe", 123, "john.doe@mail.com, University of Sydney");
 
-        expect(engineer.getRole()).toBe(role);
+        expect(intern.getRole()).toBe(role);
     });
     
-    it("should return engineer's github username", () => {
-        const github = "John Doe"
-        const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
+    it("should return intern's school", () => {
+        const school = "University of Sydney"
+        const intern = new intern("John Doe", 123, "john.doe@mail.com, University of Sydney");
 
-        expect(engineer.getGithub()).toEqual(github);
+        expect(intern.getSchool()).toEqual(school);
     });
 });

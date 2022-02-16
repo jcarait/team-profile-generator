@@ -51,7 +51,7 @@ describe("getFunctions", () => {
     });
     
     it("should return engineer's github username", () => {
-        const github = "John Doe"
+        const github = "john_doe"
         const engineer = new Engineer("John Doe", 123, "john.doe@mail.com, john_doe");
 
         expect(engineer.getGithub()).toEqual(github);
