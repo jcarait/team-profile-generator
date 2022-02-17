@@ -1,6 +1,6 @@
 // create manager card
 
-const generateManagerCard = () =>
+const generateManagerCard = (manager) =>
 
     `<div class="col-lg-4 col-md-6 mt-4">
 <div class="card manager-card" style="width: 18rem;">
@@ -18,7 +18,7 @@ const generateManagerCard = () =>
 
 // create engineer card
 
-const generateEngineerCard = () =>
+const generateEngineerCard = (engineer) =>
 
     `<div class="col-lg-4 col-md-6 mt-4">
 <div class="card manager-card" style="width: 18rem;">
@@ -27,14 +27,14 @@ const generateEngineerCard = () =>
         <h3><span><i class="fa-solid fa-chess-rook"></i> </span>Engineer</h3>
     </div>
     <div class="card-body">
-        <p class="rounded" id="id">ID: ${engineer.id} </p>
+        <p class="rounded" id="id">ID: ${engineer.id}</p>
         <p class="rounded" id="email">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></p>
         <p class="rounded" id="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p></p>
     </div>
 </div>
 </div>`;
 
-const generateInternCard = () =>
+const generateInternCard = (intern) =>
 
     `<div class="col-lg-4 col-md-6 mt-4">
 <div class="card intern-card" style="width: 18rem;">
@@ -54,9 +54,11 @@ const generateHTML = (data) => {
 
     teamArray = [];
 
-    for (const employee of data) {
+    for (let i = 0; i < data.length; i++) {
 
+        const employee = data[i]
         const role = employee.getRole();
+        console.log(employee, role);
 
         switch (role) {
             case 'Manager':
@@ -74,12 +76,11 @@ const generateHTML = (data) => {
                 console.log('No employee role found!')
 
         }
-
-        const teamCards = teamArray.join("");
-
-        return generatePage(teamCards)
     }
-}
+
+    const teamCards = teamArray.join("");
+    return generatePage(teamCards)
+};
 
 const generatePage = (card) => `
 <!DOCTYPE html>
@@ -118,3 +119,5 @@ const generatePage = (card) => `
 
 </html>
 `
+
+module.exports = generateHTML;

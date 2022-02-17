@@ -1,12 +1,15 @@
 //import team classes
 
-const Manager = require('./lib/managerClass');
-const Engineer = require('./lib/engineerClass');
-const Intern = require('./lib/internClass');
+const Manager = require("./lib/managerClass");
+const Engineer = require("./lib/engineerClass");
+const Intern = require("./lib/internClass");
 
 // node modules
-const fs = require('fs');
-const inquirer = require('inquirer');
+const fs = require("fs");
+const inquirer = require("inquirer");
+
+// import template helper
+const generateHTML = require("./src/templateHelper")
 
 //array to store team data
 const team = [];
@@ -24,8 +27,12 @@ const addManager = () => {
             name: "name",
             message: "Who is the manager of this team?",
             validate: nameInput => {
-                //ternary operator: if nameInput exists then return true, else return false.
-                nameInput ? true : false;
+                if (nameInput) { 
+                    return true 
+                } else {  
+                    console.log("Please enter the employee's name!") 
+                    return false;
+                }
             }
         },
         {
@@ -164,8 +171,9 @@ const addEmployee = () => {
         }
     ])
     .then(employeeData => {
+        //determine data and class by checking which role was selected.
 
-        let {name, id, role, github, school, confirmAdd } = employeeData;
+        let {name, id, role, email, github, school, confirmAdd } = employeeData;
         let employee;
 
         if (role === "Engineer") {
@@ -181,9 +189,13 @@ const addEmployee = () => {
 
         team.push(employee);
 
-        confirmAdd ? addEmployee(team) : team;
-    })
-}
+        if (confirmAdd) {
+            return addEmployee(team)
+        } else {
+            return team;
+        }
+    });
+};
 
 const writeFile = data => {
     fs.writeFile('./dist/index.html', data, err => {
@@ -198,5 +210,12 @@ const writeFile = data => {
     })
 }; 
 
-addEmployee()
-    .then(addEmployee);
+
+addManager()
+    .then(addEmployee)
+    .then(data => {
+        console.log(data)
+        return generateHTML(data)
+    })
+    .then(htmlData => writeFile(htmlData))
+    .catch(err => console.log(err));
