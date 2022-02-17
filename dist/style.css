@@ -4,17 +4,30 @@
     --dark: #071E22;
     --secondary-light: #679289;
     --alt: #F4C095;
+    --light: #fffdfa;
 }
 
 body {
     color: var(--dark);   
 }
 
-.jumbotron {
-    background: var(--secondary-light)
+h1 {
+    font-weight: 400;
 }
 
 h2, h3 {
     font-size: 1.2rem;
     font-weight: 500;
 }
+
+.card-header {
+    background: var(--primary);
+    color: var(--light);
+}
+
+.jumbotron {
+    background: var(--secondary);
+    color: var(--light);
+}
+
+
