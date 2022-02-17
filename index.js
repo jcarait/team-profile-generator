@@ -214,7 +214,6 @@ const writeFile = data => {
 addManager()
     .then(addEmployee)
     .then(data => {
-        console.log(data)
         return generateHTML(data)
     })
     .then(htmlData => writeFile(htmlData))

@@ -60,21 +60,24 @@ const generateHTML = (data) => {
         const role = employee.getRole();
         console.log(employee, role);
 
-        switch (role) {
-            case 'Manager':
-                const managerCard = generateManagerCard(employee);
-                teamArray.push(managerCard)
-            break;
-            case 'Engineer':
-                const engineerCard = generateEngineerCard();
-                teamArray.push(engineerCard)
-            break;
-            case 'Intern':
-                const internCard = generateInternCard();
-                teamArray.push(internCard)
-            default:
-                console.log('No employee role found!')
+        if (role === 'Manager') {
+            const managerCard = generateManagerCard(employee);
 
+            teamArray.push(managerCard);
+        }
+
+        // call engineer function
+        if (role === 'Engineer') {
+            const engineerCard = generateEngineerCard(employee);
+
+            teamArray.push(engineerCard);
+        }
+
+        // call intern function 
+        if (role === 'Intern') {
+            const internCard = generateInternCard(employee);
+
+            teamArray.push(internCard);
         }
     }
 
