@@ -84,6 +84,7 @@ const addManager = () => {
     });
 };
 
+
 const addEmployee = () => {
     console.log(`
     =================
@@ -189,6 +190,7 @@ const addEmployee = () => {
 
         team.push(employee);
 
+        // If yes, then rerun inquirer to add another employee with array
         if (confirmAdd) {
             return addEmployee(team)
         } else {

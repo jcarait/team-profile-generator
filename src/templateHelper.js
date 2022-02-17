@@ -2,8 +2,8 @@
 
 const generateManagerCard = (manager) =>
 
-    `<div class="col-lg-4 col-md-6 mt-4">
-<div class="card manager-card" style="width: 18rem;">
+    `
+<div class="card manager-card ml-4 mt-4" style="width: 18rem;">
     <div class="card-header">
         <h2>${manager.name}</h2>
         <h3><span><i class="fa-solid fa-crown"></i> </span>Manager</h3>
@@ -14,14 +14,14 @@ const generateManagerCard = (manager) =>
         <p class="rounded" id="office-number">Office Number: ${manager.officeNumber}</p>
     </div>
 </div>
-</div>`;
+`;
 
 // create engineer card
 
 const generateEngineerCard = (engineer) =>
 
-    `<div class="col-lg-4 col-md-6 mt-4">
-<div class="card manager-card" style="width: 18rem;">
+    `
+<div class="card engineer-card ml-4 mt-4" style="width: 18rem;">
     <div class="card-header">
         <h2>${engineer.name}</h2>
         <h3><span><i class="fa-solid fa-chess-rook"></i> </span>Engineer</h3>
@@ -32,12 +32,12 @@ const generateEngineerCard = (engineer) =>
         <p class="rounded" id="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p></p>
     </div>
 </div>
-</div>`;
+`;
 
 const generateInternCard = (intern) =>
 
-    `<div class="col-lg-4 col-md-6 mt-4">
-<div class="card intern-card" style="width: 18rem;">
+    `
+<div class="card intern-card ml-4 mt-4" style="width: 18rem;">
     <div class="card-header">
         <h2>${intern.name}</h2>
         <h3><span><i class="fa-solid fa-chess-pawn"></i> </span>Intern</h3>
@@ -48,7 +48,7 @@ const generateInternCard = (intern) =>
         <p class="rounded" id="school">School: ${intern.school}</p>
     </div>
 </div>
-</div>`;
+`;
 
 const generateHTML = (data) => {
 
@@ -110,14 +110,11 @@ const generatePage = (card) => `
         </div>
     </div>
 
-    <div class="container d-flex justify-content-center">
-        <div class="row">
+    <div class="container d-flex justify-content-center flex-wrap">
             ${card}
-            </row>
 
 
         </div>
-        <script src="" async defer></script>
 </body>
 
 </html>
